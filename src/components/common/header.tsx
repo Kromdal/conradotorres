@@ -5,35 +5,52 @@ import { Code, Menu } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
+import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
 
 const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#toolkit", label: "Toolkit" },
-  { href: "#contact", label: "Contact" },
+  { href: "about", label: "About" },
+  { href: "projects", label: "Projects" },
+  { href: "toolkit", label: "Toolkit" },
+  { href: "contact", label: "Contact" },
 ]
 
 export default function Header() {
   const [isSheetOpen, setSheetOpen] = useState(false)
+  const { scrollToSection, scrollToTop } = useSmoothScroll()
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault()
+    scrollToSection(sectionId)
+    setSheetOpen(false)
+  }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
+    <header className="sticky top-0 z-50 w-full glass border-b border-border/50">
+      <div className="container flex h-16 items-center">
         <div className="mr-4 hidden md:flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
+          <Link 
+            href="/" 
+            onClick={(e) => {
+              e.preventDefault()
+              scrollToTop()
+            }}
+            className="mr-6 flex items-center space-x-2"
+          >
             <Code className="h-6 w-6 text-primary" />
-            <span className="hidden font-bold sm:inline-block">
+            <span className="hidden font-bold sm:inline-block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Conrado Torres
             </span>
           </Link>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
+          <nav className="flex items-center space-x-8 text-sm font-medium">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
-                href={link.href}
-                className="transition-colors hover:text-foreground/80 text-foreground/60"
+                href={`#${link.href}`}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="relative transition-colors hover:text-primary text-foreground/70 hover:text-foreground group"
               >
                 {link.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
           </nav>
@@ -50,17 +67,25 @@ export default function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left">
-                <Link href="/" className="flex items-center" onClick={() => setSheetOpen(false)}>
+                <Link 
+                  href="/" 
+                  className="flex items-center" 
+                  onClick={(e) => {
+                    e.preventDefault()
+                    scrollToTop()
+                    setSheetOpen(false)
+                  }}
+                >
                   <Code className="h-6 w-6 text-primary" />
-                  <span className="ml-2 font-bold">Conrado Torres</span>
+                  <span className="ml-2 font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Conrado Torres</span>
                 </Link>
                 <div className="grid gap-4 py-6">
                   {navLinks.map((link) => (
                     <Link
                       key={link.href}
-                      href={link.href}
+                      href={`#${link.href}`}
                       className="flex w-full items-center py-2 text-lg font-semibold"
-                      onClick={() => setSheetOpen(false)}
+                      onClick={(e) => handleNavClick(e, link.href)}
                     >
                       {link.label}
                     </Link>

@@ -8,28 +8,66 @@ const AboutSection = () => {
   const aboutImage = PlaceHolderImages.find(p => p.id === 'conrado-torres-photo')
 
   return (
-    <section id="about" className="w-full py-16 md:py-24 lg:py-32 bg-muted/30">
-      <div className="container px-4 md:px-6">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-          <ScrollFadeIn direction="right" className="order-2 lg:order-1 space-y-6">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl font-headline">
-              From Design to Deployment
-            </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              My background in Graphic Design and Photography gives me a unique perspective. I don&apos;t just build what&apos;s specified; I focus on the &apos;why&apos; behind every design decision, ensuring a flawless user experience.
-            </p>
+    <section id="about" className="w-full py-20 md:py-28 lg:py-32 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-background" />
+      
+      <div className="container px-4 md:px-6 relative z-10">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 items-center max-w-6xl mx-auto">
+          <ScrollFadeIn direction="right" className="order-2 lg:order-1 space-y-8">
+            <div className="space-y-4">
+              <div className="inline-block">
+                <span className="px-4 py-2 text-sm font-semibold text-primary bg-primary/10 rounded-full border border-primary/20">
+                  About Me
+                </span>
+              </div>
+              <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-headline">
+                <span className="text-gradient from-foreground to-primary">
+                  From Design to Deployment
+                </span>
+              </h2>
+            </div>
+            
+            <div className="space-y-6">
+              <p className="text-foreground/80 text-lg leading-relaxed">
+                My background in Graphic Design and Photography gives me a unique perspective. I don&apos;t just build what&apos;s specified; I focus on the &apos;why&apos; behind every design decision.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                With expertise spanning frontend development, UI/UX design, and product strategy, I create digital experiences that not only look beautiful but perform exceptionally across all devices and user scenarios.
+              </p>
+            </div>
+
+            {/* Skills Grid */}
+            <div className="grid grid-cols-2 gap-4 pt-6">
+              {[
+                { title: "Frontend Development", desc: "React, TypeScript, Next.js" },
+                { title: "UI/UX Design", desc: "Figma, Adobe Creative Suite" },
+                { title: "Product Strategy", desc: "User Research, Analytics" },
+                { title: "Performance", desc: "Optimization, Accessibility" }
+              ].map((skill, i) => (
+                <div key={i} className="p-4 bg-card border border-border rounded-xl subtle-hover">
+                  <h4 className="font-semibold text-sm text-foreground mb-1">{skill.title}</h4>
+                  <p className="text-xs text-muted-foreground">{skill.desc}</p>
+                </div>
+              ))}
+            </div>
           </ScrollFadeIn>
           
           <ScrollFadeIn direction="left" className="order-1 lg:order-2">
             <div className="relative">
               {aboutImage && (
-                <Image
-                  src={aboutImage.imageUrl}
-                  alt={aboutImage.description}
-                  width={600}
-                  height={800}
-                  className="mx-auto aspect-[3/4] overflow-hidden rounded-2xl object-cover object-center shadow-2xl"
-                />
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-primary rounded-3xl opacity-20 group-hover:opacity-30 transition-opacity duration-300" />
+                  <Image
+                    src={aboutImage.imageUrl}
+                    alt={aboutImage.description}
+                    width={600}
+                    height={800}
+                    className="relative mx-auto aspect-[3/4] overflow-hidden rounded-3xl object-cover object-center shadow-strong border border-border/50"
+                  />
+                  <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-primary rounded-full opacity-60 blur-2xl" />
+                  <div className="absolute -top-6 -left-6 w-16 h-16 bg-accent rounded-full opacity-40 blur-xl" />
+                </div>
               )}
             </div>
           </ScrollFadeIn>

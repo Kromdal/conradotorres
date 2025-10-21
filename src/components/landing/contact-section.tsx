@@ -6,36 +6,96 @@ import { ScrollFadeIn } from "@/components/animations"
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="w-full py-16 md:py-24 lg:py-32 border-t bg-muted/30">
-      <div className="container px-4 md:px-6">
-        <ScrollFadeIn className="flex flex-col items-center justify-center space-y-8 text-center">
-          <div className="space-y-4">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl font-headline">Let&apos;s build something together.</h2>
-            <p className="max-w-[600px] text-muted-foreground text-lg leading-relaxed">
-              I&apos;m currently available for new freelance projects. Let&apos;s talk.
+    <section id="contact" className="w-full py-20 md:py-28 lg:py-32 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-muted/20 via-background to-primary/5" />
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-primary" />
+      
+      <div className="container px-4 md:px-6 relative z-10">
+        <ScrollFadeIn className="max-w-4xl mx-auto text-center space-y-12">
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <div className="inline-block">
+                <span className="px-4 py-2 text-sm font-semibold text-primary bg-primary/10 rounded-full border border-primary/20">
+                  Get In Touch
+                </span>
+              </div>
+              <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-headline">
+                <span className="text-gradient from-foreground to-primary">
+                  Let&apos;s build something amazing together
+                </span>
+              </h2>
+            </div>
+            <p className="text-foreground/70 text-xl leading-relaxed max-w-2xl mx-auto">
+              I&apos;m currently available for new projects and collaborations. 
+              Whether you need a complete web application or want to discuss an idea, I&apos;d love to hear from you.
             </p>
           </div>
           
-          <div className="flex flex-col gap-6 min-[400px]:flex-row">
-            <Button asChild size="lg" className="font-medium">
-              <a href="mailto:hello@subeleven.es">
-                hello@subeleven.es
-              </a>
-            </Button>
+          {/* CTA Section */}
+          <div className="space-y-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                asChild 
+                size="lg" 
+                className="gradient-primary text-white border-0 hover:shadow-glow hover:scale-105 transition-all duration-300 font-semibold px-8 py-6 text-lg"
+              >
+                <a href="mailto:hello@subeleven.es">
+                  hello@subeleven.es
+                </a>
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="subtle-hover border-2 border-primary/20 hover:border-primary/40 hover:bg-primary/5 font-semibold px-8 py-6 text-lg"
+              >
+                Schedule a Call
+              </Button>
+            </div>
+            
+            {/* Social Links */}
+            <div className="flex items-center justify-center gap-6">
+              <Button 
+                variant="ghost" 
+                size="lg" 
+                asChild 
+                className="rounded-full w-14 h-14 hover:bg-primary/10 hover:text-primary hover:scale-110 transition-all duration-300"
+              >
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                  <Github className="h-6 w-6" />
+                </a>
+              </Button>
+              
+              <Button 
+                variant="ghost" 
+                size="lg" 
+                asChild 
+                className="rounded-full w-14 h-14 hover:bg-primary/10 hover:text-primary hover:scale-110 transition-all duration-300"
+              >
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                  <Linkedin className="h-6 w-6" />
+                </a>
+              </Button>
+            </div>
           </div>
           
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" asChild className="rounded-full">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <Github className="h-5 w-5" />
-              </a>
-            </Button>
-            
-            <Button variant="ghost" size="icon" asChild className="rounded-full">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <Linkedin className="h-5 w-5" />
-              </a>
-            </Button>
+          {/* Stats or additional info */}
+          <div className="pt-12 border-t border-border/50">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              <div className="space-y-2">
+                <div className="text-2xl font-bold text-primary">24h</div>
+                <div className="text-sm text-muted-foreground">Average Response Time</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-2xl font-bold text-primary">100%</div>
+                <div className="text-sm text-muted-foreground">Client Satisfaction</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-2xl font-bold text-primary">5+</div>
+                <div className="text-sm text-muted-foreground">Years Experience</div>
+              </div>
+            </div>
           </div>
         </ScrollFadeIn>
       </div>

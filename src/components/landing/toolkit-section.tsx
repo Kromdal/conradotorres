@@ -23,42 +23,55 @@ const toolkit = [
 
 const ToolkitSection = () => {
   return (
-    <section id="toolkit" className="w-full py-12 md:py-24 lg:py-32 bg-secondary/50 relative overflow-hidden">
+    <section id="toolkit" className="w-full py-20 md:py-28 lg:py-32 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 opacity-40">
-        <div className="absolute top-0 left-1/3 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/3 w-48 h-48 bg-accent/10 rounded-full blur-2xl" />
-      </div>
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/10 to-background" />
+      <div className="absolute top-20 left-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-20 w-24 h-24 bg-accent/30 rounded-full blur-2xl" />
       
       <div className="container px-4 md:px-6 relative z-10">
-        <ScrollFadeIn className="flex flex-col items-center justify-center space-y-4 text-center">
-          <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">My Toolkit</h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              The tools and technologies I use to bring ideas to life.
+        <ScrollFadeIn className="text-center mb-16">
+          <div className="space-y-6 max-w-3xl mx-auto">
+            <div className="inline-block">
+              <span className="px-4 py-2 text-sm font-semibold text-primary bg-primary/10 rounded-full border border-primary/20">
+                Tech Stack
+              </span>
+            </div>
+            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-headline">
+              <span className="text-gradient from-foreground to-primary">
+                My Toolkit
+              </span>
+            </h2>
+            <p className="text-foreground/70 text-lg leading-relaxed">
+              The technologies and tools I leverage to create exceptional digital experiences, 
+              from concept to deployment.
             </p>
           </div>
         </ScrollFadeIn>
         
-        <ScrollStagger className="mx-auto grid max-w-5xl justify-center gap-8 sm:grid-cols-2 md:grid-cols-4 mt-8" staggerDelay={0.1}>
+        <ScrollStagger className="mx-auto grid max-w-6xl gap-8 sm:grid-cols-2 lg:grid-cols-4" staggerDelay={0.1}>
           {toolkit.map((category, index) => (
             <ScrollStaggerItem key={category.category}>
-              <HoverScale scale={1.02}>
-                <div className="space-y-4 p-6 rounded-xl bg-card/60 backdrop-blur border shadow-sm hover:shadow-lg transition-all duration-300">
-                  <Pulse scale={[1, 1.05]} duration={3 + index * 0.5}>
-                    <h3 className="text-lg font-semibold text-center font-headline">{category.category}</h3>
-                  </Pulse>
+              <div className="group h-full">
+                <div className="h-full space-y-6 p-8 rounded-2xl bg-card border border-border/50 shadow-soft hover:shadow-medium card-hover backdrop-blur-sm">
+                  <div className="text-center">
+                    <h3 className="text-xl font-bold font-headline text-foreground group-hover:text-primary transition-colors">
+                      {category.category}
+                    </h3>
+                    <div className="w-12 h-1 bg-gradient-primary mx-auto mt-3 rounded-full" />
+                  </div>
                   <ul className="space-y-3">
                     {category.items.map((item, itemIndex) => (
-                      <HoverScale key={item} scale={1.05}>
-                        <li className="text-muted-foreground text-center py-1 px-3 rounded-md hover:bg-primary/10 hover:text-primary transition-all duration-200 cursor-default">
-                          {item}
-                        </li>
-                      </HoverScale>
+                      <li 
+                        key={item} 
+                        className="text-foreground/80 text-center py-2 px-4 rounded-lg hover:bg-primary/10 hover:text-primary transition-all duration-200 cursor-default font-medium"
+                      >
+                        {item}
+                      </li>
                     ))}
                   </ul>
                 </div>
-              </HoverScale>
+              </div>
             </ScrollStaggerItem>
           ))}
         </ScrollStagger>

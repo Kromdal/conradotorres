@@ -35,13 +35,23 @@ const projects = [
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="w-full py-16 md:py-24 lg:py-32">
+    <section id="projects" className="w-full py-20 md:py-28 lg:py-32 bg-muted/30">
       <div className="container px-4 md:px-6">
-        <ScrollFadeIn className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <div className="space-y-4">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl font-headline">Featured Projects</h2>
-            <p className="max-w-[700px] text-muted-foreground text-lg leading-relaxed">
-              A selection of projects that showcase my skills in frontend development and product design.
+        <ScrollFadeIn className="text-center mb-16">
+          <div className="space-y-6 max-w-3xl mx-auto">
+            <div className="inline-block">
+              <span className="px-4 py-2 text-sm font-semibold text-primary bg-primary/10 rounded-full border border-primary/20">
+                Featured Work
+              </span>
+            </div>
+            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-headline">
+              <span className="text-gradient from-foreground to-primary">
+                Recent Projects
+              </span>
+            </h2>
+            <p className="text-foreground/70 text-lg leading-relaxed">
+              A curated selection of projects that demonstrate my expertise in modern web development, 
+              from complex SaaS platforms to optimized user experiences.
             </p>
           </div>
         </ScrollFadeIn>
@@ -49,37 +59,45 @@ const ProjectsSection = () => {
         <ScrollStagger className="grid gap-8 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.1}>
           {projects.map((project, index) => (
             <ScrollStaggerItem key={index}>
-              <Card className="flex flex-col h-full group overflow-hidden border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <Card className="flex flex-col h-full group overflow-hidden border border-border/50 shadow-soft hover:shadow-medium card-hover bg-card/80 backdrop-blur-sm">
                 <CardHeader className="p-0">
                   {project.image && (
-                    <div className="aspect-video relative overflow-hidden rounded-t-lg">
+                    <div className="aspect-video relative overflow-hidden">
                       <Image
                         src={project.image.imageUrl}
                         alt={project.image.description}
                         fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                     </div>
                   )}
                 </CardHeader>
                 <CardContent className="p-6 flex-1">
-                  <CardTitle className="font-bold text-lg mb-3">
+                  <CardTitle className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">
                     {project.title}
                   </CardTitle>
-                  <CardDescription className="text-muted-foreground leading-relaxed">
+                  <CardDescription className="text-foreground/70 leading-relaxed">
                     {project.description}
                   </CardDescription>
                 </CardContent>
                 <CardFooter className="flex-col items-start gap-4 p-6 pt-0">
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary" className="text-xs">
+                      <Badge 
+                        key={tag} 
+                        variant="secondary" 
+                        className="text-xs font-medium bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-colors"
+                      >
                         {tag}
                       </Badge>
                     ))}
                   </div>
                   {project.link && (
-                    <Button variant="outline" asChild className="w-full">
+                    <Button 
+                      variant="outline" 
+                      asChild 
+                      className="w-full subtle-hover border-primary/20 hover:border-primary/40 hover:bg-primary/5 group-hover:bg-primary group-hover:text-primary-foreground transition-all"
+                    >
                       <Link href={project.link.href} target="_blank" rel="noopener noreferrer">
                         {project.link.label}
                       </Link>
