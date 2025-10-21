@@ -38,7 +38,7 @@ const ContactSection = () => {
               <Button 
                 asChild 
                 size="lg" 
-                className="gradient-primary text-white border-0 hover:shadow-glow hover:scale-105 transition-all duration-300 font-semibold px-8 py-6 text-lg"
+                className="uniform-hover font-semibold px-8 py-6 text-lg"
               >
                 <a href="mailto:hello@subeleven.es">
                   hello@subeleven.es
@@ -48,7 +48,7 @@ const ContactSection = () => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="subtle-hover border-2 border-primary/20 hover:border-primary/40 hover:bg-primary/5 font-semibold px-8 py-6 text-lg"
+                className="uniform-hover font-semibold px-8 py-6 text-lg"
               >
                 Schedule a Call
               </Button>
@@ -60,7 +60,7 @@ const ContactSection = () => {
                 variant="ghost" 
                 size="lg" 
                 asChild 
-                className="rounded-full w-14 h-14 hover:bg-primary/10 hover:text-primary hover:scale-110 transition-all duration-300"
+                className="rounded-full w-14 h-14 uniform-hover"
               >
                 <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                   <Github className="h-6 w-6" />
@@ -71,7 +71,7 @@ const ContactSection = () => {
                 variant="ghost" 
                 size="lg" 
                 asChild 
-                className="rounded-full w-14 h-14 hover:bg-primary/10 hover:text-primary hover:scale-110 transition-all duration-300"
+                className="rounded-full w-14 h-14 uniform-hover"
               >
                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                   <Linkedin className="h-6 w-6" />

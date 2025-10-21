@@ -37,7 +37,7 @@ export default function Header() {
             className="mr-6 flex items-center space-x-2"
           >
             <Code className="h-6 w-6 text-primary" />
-            <span className="hidden font-bold sm:inline-block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <span className="hidden font-bold sm:inline-block text-foreground">
               Conrado Torres
             </span>
           </Link>
@@ -47,10 +47,10 @@ export default function Header() {
                 key={link.href}
                 href={`#${link.href}`}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="relative transition-colors hover:text-primary text-foreground/70 hover:text-foreground group"
+                className="relative transition-colors hover:text-primary text-foreground/70 group"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full" />
               </Link>
             ))}
           </nav>
@@ -77,7 +77,7 @@ export default function Header() {
                   }}
                 >
                   <Code className="h-6 w-6 text-primary" />
-                  <span className="ml-2 font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Conrado Torres</span>
+                  <span className="ml-2 font-bold text-foreground">Conrado Torres</span>
                 </Link>
                 <div className="grid gap-4 py-6">
                   {navLinks.map((link) => (

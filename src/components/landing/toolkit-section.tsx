@@ -53,12 +53,12 @@ const ToolkitSection = () => {
           {toolkit.map((category, index) => (
             <ScrollStaggerItem key={category.category}>
               <div className="group h-full">
-                <div className="h-full space-y-6 p-8 rounded-2xl bg-card border border-border/50 shadow-soft hover:shadow-medium card-hover backdrop-blur-sm">
+                <div className="h-full space-y-6 p-8 rounded-2xl bg-card border border-border/50 shadow-soft hover:shadow-medium card-uniform">
                   <div className="text-center">
                     <h3 className="text-xl font-bold font-headline text-foreground group-hover:text-primary transition-colors">
                       {category.category}
                     </h3>
-                    <div className="w-12 h-1 bg-gradient-primary mx-auto mt-3 rounded-full" />
+                    <div className="w-8 h-0.5 bg-primary mx-auto mt-3 rounded-full" />
                   </div>
                   <ul className="space-y-3">
                     {category.items.map((item, itemIndex) => (

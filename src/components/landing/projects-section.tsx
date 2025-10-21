@@ -59,7 +59,7 @@ const ProjectsSection = () => {
         <ScrollStagger className="grid gap-8 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.1}>
           {projects.map((project, index) => (
             <ScrollStaggerItem key={index}>
-              <Card className="flex flex-col h-full group overflow-hidden border border-border/50 shadow-soft hover:shadow-medium card-hover bg-card/80 backdrop-blur-sm">
+              <Card className="flex flex-col h-full group overflow-hidden border border-border/50 shadow-soft hover:shadow-medium card-uniform bg-card">
                 <CardHeader className="p-0">
                   {project.image && (
                     <div className="aspect-video relative overflow-hidden">
@@ -67,7 +67,7 @@ const ProjectsSection = () => {
                         src={project.image.imageUrl}
                         alt={project.image.description}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                   )}

@@ -25,7 +25,7 @@ const HeroSection = () => {
           <div className="space-y-6">
             <div className="space-y-4">
               <h1 className="text-5xl font-black tracking-tight sm:text-6xl md:text-7xl lg:text-8xl font-headline">
-                <span className="text-gradient from-foreground via-primary to-accent">
+                <span className="text-gradient from-foreground to-primary">
                   Conrado Torres
                 </span>
               </h1>
@@ -33,7 +33,7 @@ const HeroSection = () => {
                 <h2 className="text-xl md:text-2xl lg:text-3xl text-foreground/90 font-semibold">
                   Frontend Developer & Product Designer
                 </h2>
-                <div className="w-20 h-1 bg-gradient-primary mx-auto rounded-full" />
+                <div className="w-16 h-0.5 bg-primary mx-auto rounded-full" />
               </div>
             </div>
             
@@ -48,7 +48,7 @@ const HeroSection = () => {
             <Button 
               onClick={() => scrollToSection('projects')}
               size="lg" 
-              className="gradient-primary text-white border-0 hover:shadow-glow hover:scale-105 transition-all duration-300 font-semibold px-8"
+              className="uniform-hover font-semibold px-8"
             >
               View My Projects <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -57,7 +57,7 @@ const HeroSection = () => {
               variant="outline" 
               size="lg" 
               asChild 
-              className="subtle-hover border-2 border-primary/20 hover:border-primary/40 hover:bg-primary/5 font-semibold px-8"
+              className="uniform-hover font-semibold px-8"
             >
               <a href="/conrado-torres-cv.pdf" download>
                 Download CV <Download className="ml-2 h-5 w-5" />
@@ -74,7 +74,7 @@ const HeroSection = () => {
               {['React', 'TypeScript', 'Next.js', 'Tailwind', 'Framer Motion'].map((tech) => (
                 <span 
                   key={tech}
-                  className="px-3 py-1.5 text-sm font-medium bg-card border border-border rounded-full text-foreground/80 subtle-hover"
+                  className="px-3 py-1.5 text-sm font-medium bg-card border border-border rounded-full text-foreground/80 uniform-hover"
                 >
                   {tech}
                 </span>

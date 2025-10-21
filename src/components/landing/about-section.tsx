@@ -45,7 +45,7 @@ const AboutSection = () => {
                 { title: "Product Strategy", desc: "User Research, Analytics" },
                 { title: "Performance", desc: "Optimization, Accessibility" }
               ].map((skill, i) => (
-                <div key={i} className="p-4 bg-card border border-border rounded-xl subtle-hover">
+                <div key={i} className="p-4 bg-card border border-border rounded-xl card-uniform">
                   <h4 className="font-semibold text-sm text-foreground mb-1">{skill.title}</h4>
                   <p className="text-xs text-muted-foreground">{skill.desc}</p>
                 </div>
@@ -57,16 +57,13 @@ const AboutSection = () => {
             <div className="relative">
               {aboutImage && (
                 <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-primary rounded-3xl opacity-20 group-hover:opacity-30 transition-opacity duration-300" />
                   <Image
                     src={aboutImage.imageUrl}
                     alt={aboutImage.description}
                     width={600}
                     height={800}
-                    className="relative mx-auto aspect-[3/4] overflow-hidden rounded-3xl object-cover object-center shadow-strong border border-border/50"
+                    className="relative mx-auto aspect-[3/4] overflow-hidden rounded-2xl object-cover object-center shadow-medium border border-border/50"
                   />
-                  <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-primary rounded-full opacity-60 blur-2xl" />
-                  <div className="absolute -top-6 -left-6 w-16 h-16 bg-accent rounded-full opacity-40 blur-xl" />
                 </div>
               )}
             </div>

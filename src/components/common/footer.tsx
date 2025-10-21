@@ -16,7 +16,7 @@ const Footer = () => {
               variant="ghost" 
               size="icon" 
               asChild 
-              className="rounded-full hover:bg-primary/10 hover:text-primary transition-all duration-300"
+              className="rounded-full uniform-hover"
             >
               <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <Github className="h-5 w-5" />
@@ -26,7 +26,7 @@ const Footer = () => {
               variant="ghost" 
               size="icon" 
               asChild 
-              className="rounded-full hover:bg-primary/10 hover:text-primary transition-all duration-300"
+              className="rounded-full uniform-hover"
             >
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <Linkedin className="h-5 w-5" />
