@@ -1,3 +1,28 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "conrado-torres-photo",
+      "description": "A professional headshot of Conrado Torres.",
+      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjEwNTc1NjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "project-saas",
+      "description": "Screenshot of a financial analytics dashboard.",
+      "imageUrl": "https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhbmFseXRpY3MlMjBkYXNoYm9hcmR8ZW58MHx8fHwxNzYwOTY5Nzk2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "analytics dashboard"
+    },
+    {
+      "id": "project-agency",
+      "description": "Homepage of a design agency.",
+      "imageUrl": "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhZ2VuY3klMjB3ZWJzaXRlfGVufDB8fHx8MTc2MTA1ODU1N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "agency website"
+    },
+    {
+      "id": "project-portfolio",
+      "description": "The personal portfolio website itself.",
+      "imageUrl": "https://images.unsplash.com/photo-1607743386830-f198fbd7f9c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxkZXZlbG9wZXIlMjBwb3J0Zm9saW98ZW58MHx8fHwxNzYwOTgxMzI2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "developer portfolio"
+    }
+  ]
 }
