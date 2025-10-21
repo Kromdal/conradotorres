@@ -4,7 +4,11 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 4rem; /* Espacio para el header fijo */
+  scroll-padding-top: 5rem; /* Espacio para el header fijo */
+}
+
+* {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -50,8 +54,9 @@ body {
   }
   
   .uniform-hover:hover {
-    background-color: hsl(215, 25%, 96%);
-    border-color: hsl(215, 25%, 85%);
+    background-color: hsl(215, 15%, 99%);
+    border-color: hsl(215, 15%, 93%);
+    color: hsl(215, 25%, 20%);
   }
   
   .card-uniform {
@@ -59,8 +64,18 @@ body {
   }
   
   .card-uniform:hover {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    border-color: hsl(215, 25%, 85%);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+    border-color: hsl(215, 15%, 88%);
+    background-color: hsl(215, 15%, 99%);
+  }
+  
+  .cta-primary {
+    transition: all 0.2s ease-out;
+  }
+  
+  .cta-primary:hover {
+    background-color: hsl(215, 25%, 30%);
+    color: white !important;
   }
 }
 

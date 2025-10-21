@@ -11,25 +11,25 @@ const Footer = () => {
             © 2024 Conrado Torres. Built with ❤️ and modern tech.
           </p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
             <Button 
               variant="ghost" 
-              size="icon" 
+              size="sm" 
               asChild 
-              className="rounded-full uniform-hover"
+              className="w-8 h-8 uniform-hover"
             >
               <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <Github className="h-5 w-5" />
+                <Github className="h-4 w-4" />
               </a>
             </Button>
             <Button 
               variant="ghost" 
-              size="icon" 
+              size="sm" 
               asChild 
-              className="rounded-full uniform-hover"
+              className="w-8 h-8 uniform-hover"
             >
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <Linkedin className="h-5 w-5" />
+                <Linkedin className="h-4 w-4" />
               </a>
             </Button>
           </div>

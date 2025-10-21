@@ -96,7 +96,8 @@ const ProjectsSection = () => {
                     <Button 
                       variant="outline" 
                       asChild 
-                      className="w-full subtle-hover border-primary/20 hover:border-primary/40 hover:bg-primary/5 group-hover:bg-primary group-hover:text-primary-foreground transition-all"
+                      size="default"
+                      className="w-full uniform-hover font-medium"
                     >
                       <Link href={project.link.href} target="_blank" rel="noopener noreferrer">
                         {project.link.label}

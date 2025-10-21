@@ -26,8 +26,6 @@ const ToolkitSection = () => {
     <section id="toolkit" className="w-full py-20 md:py-28 lg:py-32 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/10 to-background" />
-      <div className="absolute top-20 left-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-20 w-24 h-24 bg-accent/30 rounded-full blur-2xl" />
       
       <div className="container px-4 md:px-6 relative z-10">
         <ScrollFadeIn className="text-center mb-16">

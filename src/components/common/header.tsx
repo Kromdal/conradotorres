@@ -96,7 +96,7 @@ export default function Header() {
           </div>
 
           <nav className="flex items-center">
-            <Button asChild>
+            <Button asChild size="default" className="cta-primary font-medium px-6">
               <a href="mailto:hello@subeleven.es">
                 Contact Me
               </a>

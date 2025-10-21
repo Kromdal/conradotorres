@@ -14,11 +14,6 @@ const HeroSection = () => {
       <div className="absolute inset-0 gradient-mesh opacity-20" />
       <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/95 to-background" />
       
-      {/* Floating Elements */}
-      <div className="absolute top-20 left-10 w-2 h-2 bg-primary/30 rounded-full animate-float" />
-      <div className="absolute top-40 right-20 w-1 h-1 bg-accent/40 rounded-full animate-float" style={{ animationDelay: '1s' }} />
-      <div className="absolute bottom-32 left-1/4 w-1.5 h-1.5 bg-primary/20 rounded-full animate-float" style={{ animationDelay: '2s' }} />
-      
       <div className="container px-4 md:px-6 relative z-10">
         <ScrollFadeIn className="max-w-4xl mx-auto text-center space-y-8">
           {/* Main Content */}
@@ -47,20 +42,20 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
             <Button 
               onClick={() => scrollToSection('projects')}
-              size="lg" 
-              className="uniform-hover font-semibold px-8"
+              size="default" 
+              className="cta-primary font-medium px-6"
             >
-              View My Projects <ArrowRight className="ml-2 h-5 w-5" />
+              View My Projects <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             
             <Button 
               variant="outline" 
-              size="lg" 
+              size="default" 
               asChild 
-              className="uniform-hover font-semibold px-8"
+              className="uniform-hover font-medium px-6"
             >
               <a href="/conrado-torres-cv.pdf" download>
-                Download CV <Download className="ml-2 h-5 w-5" />
+                Download CV <Download className="ml-2 h-4 w-4" />
               </a>
             </Button>
           </div>

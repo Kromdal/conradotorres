@@ -37,8 +37,8 @@ const ContactSection = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 asChild 
-                size="lg" 
-                className="uniform-hover font-semibold px-8 py-6 text-lg"
+                size="default" 
+                className="cta-primary font-medium px-6"
               >
                 <a href="mailto:hello@subeleven.es">
                   hello@subeleven.es
@@ -47,34 +47,34 @@ const ContactSection = () => {
               
               <Button 
                 variant="outline" 
-                size="lg" 
-                className="uniform-hover font-semibold px-8 py-6 text-lg"
+                size="default" 
+                className="uniform-hover font-medium px-6"
               >
                 Schedule a Call
               </Button>
             </div>
             
             {/* Social Links */}
-            <div className="flex items-center justify-center gap-6">
+            <div className="flex items-center justify-center gap-4">
               <Button 
                 variant="ghost" 
-                size="lg" 
+                size="sm" 
                 asChild 
-                className="rounded-full w-14 h-14 uniform-hover"
+                className="w-10 h-10 uniform-hover"
               >
                 <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                  <Github className="h-6 w-6" />
+                  <Github className="h-4 w-4" />
                 </a>
               </Button>
               
               <Button 
                 variant="ghost" 
-                size="lg" 
+                size="sm" 
                 asChild 
-                className="rounded-full w-14 h-14 uniform-hover"
+                className="w-10 h-10 uniform-hover"
               >
                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                  <Linkedin className="h-6 w-6" />
+                  <Linkedin className="h-4 w-4" />
                 </a>
               </Button>
             </div>
