@@ -1,0 +1,102 @@
+"use client";
+
+import { useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+
+export const AudioWaves = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { scrollYProgress } = useScroll();
+  
+  // Transform scroll progress to audio activity
+  const audioActivity = useTransform(scrollYProgress, [0, 1], [0.2, 1]);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let animationId: number;
+    let time = 0;
+
+    const updateCanvasSize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    updateCanvasSize();
+    window.addEventListener('resize', updateCanvasSize);
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      const centerY = canvas.height / 2;
+      const frequency = 0.01; // Más sutil
+      const amplitude = 15; // Menor amplitud
+      const numberOfWaves = 3; // Menos ondas
+      
+      // Get current scroll activity
+      const currentActivity = audioActivity.get();
+      
+      for (let wave = 0; wave < numberOfWaves; wave++) {
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(59, 130, 246, ${0.05 + (wave * 0.05) * currentActivity})`; // Mucho más sutil
+        ctx.lineWidth = 1;
+        
+        for (let x = 0; x < canvas.width; x += 2) {
+          const y = centerY + 
+            Math.sin(x * frequency + time * 0.01 + wave * 0.5) * amplitude * currentActivity +
+            Math.sin(x * frequency * 2 + time * 0.02 + wave) * amplitude * 0.5 * currentActivity;
+          
+          if (x === 0) {
+            ctx.moveTo(x, y);
+          } else {
+            ctx.lineTo(x, y);
+          }
+        }
+        
+        ctx.stroke();
+      }
+      
+      // Add particles - menos y más sutiles
+      for (let i = 0; i < 5; i++) {
+        const x = (time * 1 + i * 100) % canvas.width;
+        const y = centerY + Math.sin(x * frequency + time * 0.005) * amplitude * currentActivity;
+        
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(147, 51, 234, ${0.1 * currentActivity})`;
+        ctx.arc(x, y, 1 * currentActivity, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      
+      time++;
+      animationId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      window.removeEventListener('resize', updateCanvasSize);
+      cancelAnimationFrame(animationId);
+    };
+  }, [audioActivity]);
+
+  return (
+    <motion.div
+      className="fixed inset-0 pointer-events-none z-10"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
+      <canvas
+        ref={canvasRef}
+        className="w-full h-full"
+        style={{
+          mixBlendMode: 'screen',
+          filter: 'blur(0.5px)',
+        }}
+      />
+    </motion.div>
+  );
+};

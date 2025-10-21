@@ -5,7 +5,6 @@ import AboutSection from '@/components/landing/about-section';
 import ProjectsSection from '@/components/landing/projects-section';
 import ToolkitSection from '@/components/landing/toolkit-section';
 import ContactSection from '@/components/landing/contact-section';
-import AiAnalyzerSection from '@/components/landing/ai-analyzer-section';
 
 export default function Home() {
   return (
@@ -16,7 +15,6 @@ export default function Home() {
         <AboutSection />
         <ProjectsSection />
         <ToolkitSection />
-        <AiAnalyzerSection />
         <ContactSection />
       </main>
       <Footer />
