@@ -18,10 +18,10 @@ export function convertProjectToPreview(project: Project): ProjectPreview {
     },
     link: isSubeleven && project.liveUrl ? {
       href: project.liveUrl,
-      label: "Visitar Subeleven",
+      label: "Visit Subeleven",
     } : {
       href: `/projects/${project.slug}`,
-      label: "Ver Proyecto Completo",
+      label: "View Full Project",
     },
   };
 }

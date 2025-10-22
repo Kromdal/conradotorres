@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 
   if (!project) {
     return {
-      title: 'Proyecto no encontrado | Conrado Torres',
+      title: 'Project not found | Conrado Torres',
     };
   }
 
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     title: `${project.title} | Conrado Torres - Desarrollador Frontend`,
     description: project.shortDescription,
     keywords: [
-      'desarrollo web', 
+      'web development', 
       'frontend developer', 
       'React', 
       'Next.js', 
@@ -83,7 +83,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
         >
           <Link href="/#projects">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Volver a Proyectos
+            Back to Projects
           </Link>
         </Button>
       </div>
@@ -99,7 +99,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
                 </Badge>
                 {project.featured && (
                   <Badge variant="outline" className="border-amber-200 text-amber-700 bg-amber-50">
-                    Proyecto Destacado
+                    Featured Project
                   </Badge>
                 )}
               </div>
@@ -135,7 +135,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
                 <Button asChild className="cta-primary">
                   <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="mr-2 h-4 w-4" />
-                    Ver Proyecto
+                    View Project
                   </Link>
                 </Button>
               )}
@@ -143,7 +143,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
                 <Button variant="outline" asChild className="uniform-hover">
                   <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                     <Github className="mr-2 h-4 w-4" />
-                    Ver Código
+                    View Code
                   </Link>
                 </Button>
               )}
@@ -169,7 +169,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
       <section className="container pb-16">
         <Card className="border border-border/50 shadow-soft">
           <CardHeader>
-            <CardTitle className="text-2xl font-bold">Tecnologías Utilizadas</CardTitle>
+            <CardTitle className="text-2xl font-bold">Technologies Used</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-3">
@@ -191,7 +191,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
       <section className="container pb-16">
         <Card className="border border-border/50 shadow-soft">
           <CardHeader>
-            <CardTitle className="text-2xl font-bold">Descripción del Proyecto</CardTitle>
+            <CardTitle className="text-2xl font-bold">Project Description</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="prose prose-gray max-w-none">
@@ -202,7 +202,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
 
             {project.challenges && (
               <div>
-                <h3 className="text-xl font-semibold mb-3">Desafíos y Soluciones</h3>
+                <h3 className="text-xl font-semibold mb-3">Challenges & Solutions</h3>
                 <p className="text-foreground/80 leading-relaxed">
                   {project.challenges}
                 </p>
@@ -211,7 +211,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
 
             {project.results && (
               <div>
-                <h3 className="text-xl font-semibold mb-3">Resultados Obtenidos</h3>
+                <h3 className="text-xl font-semibold mb-3">Results Achieved</h3>
                 <p className="text-foreground/80 leading-relaxed">
                   {project.results}
                 </p>
@@ -226,7 +226,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
         <section className="container pb-16">
           <Card className="border border-border/50 shadow-soft">
             <CardHeader>
-              <CardTitle className="text-2xl font-bold">Galería del Proyecto</CardTitle>
+              <CardTitle className="text-2xl font-bold">Project Gallery</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid gap-6 md:grid-cols-2">
@@ -250,21 +250,21 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
       <section className="container pb-20">
         <Card className="border border-border/50 shadow-soft bg-gradient-to-br from-primary/5 to-accent/5">
           <CardContent className="text-center py-12">
-            <h2 className="text-3xl font-bold mb-4">¿Te gusta este proyecto?</h2>
+            <h2 className="text-3xl font-bold mb-4">Like this project?</h2>
             <p className="text-lg text-foreground/70 mb-8 max-w-2xl mx-auto">
-              En Subeleven creamos soluciones digitales que impulsan el crecimiento de tu negocio. 
-              ¡Hablemos sobre tu próximo proyecto!
+              At Subeleven, we create digital solutions that drive business growth. 
+              Let's talk about your next project!
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button asChild className="cta-primary">
                 <Link href="/#contact">
-                  Empezar mi Proyecto
+                  Start My Project
                 </Link>
               </Button>
               <Button variant="outline" asChild className="uniform-hover">
                 <Link href="https://subeleven.es" target="_blank">
                   <ExternalLink className="mr-2 h-4 w-4" />
-                  Visitar Subeleven
+                  Visit Subeleven
                 </Link>
               </Button>
             </div>
