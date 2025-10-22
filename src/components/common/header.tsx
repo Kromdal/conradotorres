@@ -1,7 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { Code, Menu } from "lucide-react"
+import Image from "next/image"
+import { Menu } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
@@ -36,7 +37,13 @@ export default function Header() {
             }}
             className="mr-6 flex items-center space-x-2"
           >
-            <Code className="h-6 w-6 text-primary" />
+            <Image 
+              src="/images/logo.png" 
+              alt="Conrado Torres Logo" 
+              width={24} 
+              height={24}
+              className="h-6 w-6"
+            />
             <span className="hidden font-bold sm:inline-block text-foreground">
               Conrado Torres
             </span>
@@ -76,7 +83,13 @@ export default function Header() {
                     setSheetOpen(false)
                   }}
                 >
-                  <Code className="h-6 w-6 text-primary" />
+                  <Image 
+                    src="/images/logo.png" 
+                    alt="Conrado Torres Logo" 
+                    width={24} 
+                    height={24}
+                    className="h-6 w-6"
+                  />
                   <span className="ml-2 font-bold text-foreground">Conrado Torres</span>
                 </Link>
                 <div className="grid gap-4 py-6">

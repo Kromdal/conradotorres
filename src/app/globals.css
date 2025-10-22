@@ -54,9 +54,9 @@ body {
   }
   
   .uniform-hover:hover {
-    background-color: hsl(215, 15%, 99%);
-    border-color: hsl(215, 15%, 93%);
-    color: hsl(215, 25%, 20%);
+    background-color: hsl(215, 20%, 94%) !important;
+    border-color: hsl(215, 15%, 85%) !important;
+    color: hsl(215, 25%, 40%) !important;
   }
   
   .card-uniform {

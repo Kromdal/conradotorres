@@ -3,35 +3,16 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { PlaceHolderImages } from "@/lib/placeholder-images"
 import Image from "next/image"
 import Link from "next/link"
-import { ScrollFadeIn, ScrollStagger, ScrollStaggerItem, HoverLift, HoverScale, AnimatedImage } from "@/components/animations"
+import { ScrollFadeIn, ScrollStagger, ScrollStaggerItem } from "@/components/animations"
+import { getAllProjects } from "@/lib/projects-data"
+import { convertProjectsToPreview } from "@/lib/utils/project-utils"
+import { ProjectPreview } from "@/lib/types/project"
 
-const projects = [
-  {
-    title: "Real-Time Financial Analytics Platform (SaaS)",
-    description: "As the sole frontend developer, I built a complex dashboard visualizing millions of daily banking transactions, focusing on high performance under heavy data load.",
-    tags: ["React", "TypeScript", "Data Visualization", "SaaS", "(Confidential)"],
-    image: PlaceHolderImages.find(p => p.id === 'project-saas'),
-  },
-  {
-    title: "[Your Agency Name] (Founder)",
-    description: "My personal project managing the full lifecycle for clients, from UX/UI design in Figma and Lovable to development and SEO optimization.",
-    tags: ["React", "Vite", "Lovable", "SEO", "Firebase"],
-    image: PlaceHolderImages.find(p => p.id === 'project-agency'),
-  },
-  {
-    title: "My Personal Portfolio (Open Source)",
-    description: "This site itself. Built with React, Vite, and Framer Motion, optimized for a 100 Lighthouse score. The code is clean and available on GitHub.",
-    tags: ["React", "Vite", "Framer Motion", "Open Source"],
-    image: PlaceHolderImages.find(p => p.id === 'project-portfolio'),
-    link: {
-      href: "https://github.com",
-      label: "View Source Code",
-    },
-  },
-]
+// Obtener los proyectos y convertirlos a vista previa
+const projectsData = getAllProjects();
+const projects: ProjectPreview[] = convertProjectsToPreview(projectsData);
 
 const ProjectsSection = () => {
   return (
@@ -99,7 +80,11 @@ const ProjectsSection = () => {
                       size="default"
                       className="w-full uniform-hover font-medium"
                     >
-                      <Link href={project.link.href} target="_blank" rel="noopener noreferrer">
+                      <Link 
+                        href={project.link.href} 
+                        target={project.link.href.startsWith('http') ? "_blank" : undefined}
+                        rel={project.link.href.startsWith('http') ? "noopener noreferrer" : undefined}
+                      >
                         {project.link.label}
                       </Link>
                     </Button>
