@@ -16,7 +16,7 @@ const projects: ProjectPreview[] = convertProjectsToPreview(projectsData);
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="w-full py-20 md:py-28 lg:py-32 bg-muted/30">
+  <section id="projects" className="w-full pt-5 md:pt-7 lg:pt-10 mt-15 md:mt-20 lg:mt-28 pb-0 bg-background">
       <div className="container px-4 md:px-6">
         <ScrollFadeIn className="text-center mb-16">
           <div className="space-y-6 max-w-3xl mx-auto">

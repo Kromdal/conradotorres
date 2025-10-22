@@ -76,8 +76,6 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-      
       <main className="pt-20"> {/* Add padding to account for fixed header */}
         {/* Enhanced Header Navigation */}
         <div className="container py-6">
@@ -189,20 +187,15 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
           </CardHeader>
           <CardContent className="space-y-8">
             <div>
-              <h3 className="text-xl font-semibold mb-4">Description</h3>
-              <p className="text-lg leading-relaxed text-foreground/80">
+              <h3 className="text-xl font-semibold mb-4 pb-3 border-b-2 border-primary/20 text-gradient from-foreground to-primary hover:border-primary/40 transition-colors">Description</h3>
+              <p className="text-foreground/80 leading-relaxed">
                 {project.fullDescription}
               </p>
             </div>
 
             {project.challenges && (
               <div>
-                <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                  <svg className="w-5 h-5 text-foreground/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
-                  </svg>
-                  Challenges & Solutions
-                </h3>
+                <h3 className="text-xl font-semibold mb-4 pb-3 border-b-2 border-primary/20 text-gradient from-foreground to-primary hover:border-primary/40 transition-colors">Challenges & Solutions</h3>
                 <p className="text-foreground/80 leading-relaxed">
                   {project.challenges}
                 </p>
@@ -211,12 +204,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
 
             {project.results && (
               <div>
-                <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                  <svg className="w-5 h-5 text-foreground/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  Results Achieved
-                </h3>
+                <h3 className="text-xl font-semibold mb-4 pb-3 border-b-2 border-primary/20 text-gradient from-foreground to-primary hover:border-primary/40 transition-colors">Results Achieved</h3>
                 <p className="text-foreground/80 leading-relaxed">
                   {project.results}
                 </p>
@@ -278,7 +266,6 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
       </section>
       </main>
       
-      <Footer />
     </div>
   );
 };

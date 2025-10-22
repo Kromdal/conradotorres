@@ -6,7 +6,7 @@ import { ScrollFadeIn } from "@/components/animations"
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="w-full py-20 md:py-28 lg:py-32 relative overflow-hidden">
+  <section id="contact" className="w-full pt-5 md:pt-7 lg:pt-10 mt-15 md:mt-20 lg:mt-28 pb-0 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-muted/20 via-background to-primary/5" />
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-primary" />

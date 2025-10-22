@@ -2,6 +2,8 @@ import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { EasterEgg } from "@/components/interactive";
+import Header from "@/components/common/header";
+import Footer from "@/components/common/footer";
 
 export const metadata: Metadata = {
   title: 'Conrado Torres | Frontend Developer & Product Designer',
@@ -22,7 +24,9 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased">
         <EasterEgg />
+        <Header />
         {children}
+        <Footer />
         <Toaster />
       </body>
     </html>

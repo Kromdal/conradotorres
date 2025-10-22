@@ -66,7 +66,7 @@ const toolkit = toolkitData.toolkit as ToolkitCategory[];
 
 const ToolkitSection = () => {
   return (
-    <section id="toolkit" className="w-full py-20 md:py-28 lg:py-32 relative overflow-hidden">
+  <section id="toolkit" className="w-full pt-5 md:pt-7 lg:pt-10 mt-15 md:mt-20 lg:mt-28 pb-0 relative overflow-hidden">
       {/* Background decoration - mantener sutil */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/10 to-background" />
       

@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { usePathname, useRouter } from "next/navigation"
 import Image from "next/image"
 import { Menu } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
@@ -17,25 +18,23 @@ const navLinks = [
 
 export default function Header() {
   const [isSheetOpen, setSheetOpen] = useState(false)
-  const { scrollToSection, scrollToTop } = useSmoothScroll()
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
-    e.preventDefault()
-    scrollToSection(sectionId)
-    setSheetOpen(false)
-  }
+  const pathname = usePathname()
+  const router = useRouter()
+  const { scrollToSection } = useSmoothScroll()
 
   return (
     <header className="sticky top-0 z-50 w-full glass border-b border-border/50">
       <div className="container flex h-16 items-center">
         <div className="mr-4 hidden md:flex">
           <Link 
-            href="/" 
-            onClick={(e) => {
-              e.preventDefault()
-              scrollToTop()
-            }}
+            href="/"
             className="mr-6 flex items-center space-x-2"
+            onClick={e => {
+              if (pathname === "/") {
+                e.preventDefault()
+                scrollToSection("hero")
+              }
+            }}
           >
             <Image 
               src="/images/logo.png" 
@@ -52,9 +51,14 @@ export default function Header() {
             {navLinks.map((link) => (
               <Link
                 key={link.href}
-                href={`#${link.href}`}
-                onClick={(e) => handleNavClick(e, link.href)}
+                href={`/${link.href === 'about' ? '#about' : '#' + link.href}`}
                 className="relative transition-colors hover:text-primary text-foreground/70 group"
+                onClick={e => {
+                  if (pathname === "/") {
+                    e.preventDefault()
+                    scrollToSection(link.href)
+                  }
+                }}
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full" />
@@ -75,11 +79,13 @@ export default function Header() {
               </SheetTrigger>
               <SheetContent side="left">
                 <Link 
-                  href="/" 
-                  className="flex items-center" 
-                  onClick={(e) => {
-                    e.preventDefault()
-                    scrollToTop()
+                  href="/"
+                  className="flex items-center"
+                  onClick={e => {
+                    if (pathname === "/") {
+                      e.preventDefault()
+                      scrollToSection("hero")
+                    }
                     setSheetOpen(false)
                   }}
                 >
@@ -96,9 +102,15 @@ export default function Header() {
                   {navLinks.map((link) => (
                     <Link
                       key={link.href}
-                      href={`#${link.href}`}
+                      href={`/${link.href === 'about' ? '#about' : '#' + link.href}`}
                       className="flex w-full items-center py-2 text-lg font-semibold"
-                      onClick={(e) => handleNavClick(e, link.href)}
+                      onClick={e => {
+                        if (pathname === "/") {
+                          e.preventDefault()
+                          scrollToSection(link.href)
+                        }
+                        setSheetOpen(false)
+                      }}
                     >
                       {link.label}
                     </Link>

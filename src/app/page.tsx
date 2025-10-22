@@ -8,16 +8,12 @@ import ContactSection from '@/components/landing/contact-section';
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-[100dvh] bg-background">
-      <Header />
-      <main className="flex-1">
-        <HeroSection />
-        <AboutSection />
-        <ProjectsSection />
-        <ToolkitSection />
-        <ContactSection />
-      </main>
-      <Footer />
-    </div>
+    <main className="flex-1">
+      <HeroSection />
+      <AboutSection />
+      <ProjectsSection />
+      <ToolkitSection />
+      <ContactSection />
+    </main>
   );
 }
