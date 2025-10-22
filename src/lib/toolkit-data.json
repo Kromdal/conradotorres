@@ -1,0 +1,148 @@
+{
+  "toolkit": [
+    {
+      "category": "Frontend Development",
+      "icon": "Code2",
+      "items": [
+        {
+          "name": "TypeScript",
+          "level": 76,
+          "startDate": "2021-10-01",
+          "description": "Strong typing and modern JavaScript development"
+        },
+        {
+          "name": "JavaScript",
+          "level": 84,
+          "startDate": "2019-08-01",
+          "description": "Core web development language, ES6+ features"
+        },
+        {
+          "name": "React",
+          "level": 80,
+          "startDate": "2023-12-01", 
+          "description": "Component-based UI development and ecosystem"
+        },
+        {
+          "name": "Next.js",
+          "level": 74,
+          "startDate": "2024-10-01",
+          "description": "Full-stack React framework with SSR/SSG"
+        },
+        {
+          "name": "HTML5",
+          "level": 91,
+          "startDate": "2018-06-01",
+          "description": "Semantic markup and modern web standards"
+        },
+        {
+          "name": "CSS3",
+          "level": 92,
+          "startDate": "2018-06-01", 
+          "description": "Modern styling, animations, and responsive design"
+        },
+        {
+          "name": "Tailwind CSS",
+          "level": 82,
+          "startDate": "2025-08-01",
+          "description": "Utility-first CSS framework for rapid development"
+        }
+      ]
+    },
+    {
+      "category": "Tools & Platforms",
+      "icon": "Zap",
+      "items": [
+        {
+          "name": "Git",
+          "level": 85,
+          "startDate": "2022-08-01",
+          "description": "Version control and collaborative development"
+        },
+        {
+          "name": "Figma", 
+          "level": 95,
+          "startDate": "2021-08-01",
+          "description": "UI/UX design and prototyping tool"
+        },
+        {
+          "name": "Firebase",
+          "level": 75,
+          "startDate": "2022-08-01",
+          "description": "Backend-as-a-Service and real-time databases"
+        },
+        {
+          "name": "Vercel",
+          "level": 75,
+          "startDate": "2024-10-01",
+          "description": "Deployment platform for modern web applications"
+        },
+        {
+          "name": "Lovable",
+          "level": 65,
+          "startDate": "2025-10-01",
+          "description": "AI-powered development and prototyping platform"
+        },
+        {
+          "name": "Cursor",
+          "level": 60,
+          "startDate": "2025-10-01", 
+          "description": "AI-assisted code editor for enhanced productivity"
+        },
+        {
+          "name": "Framer Motion",
+          "level": 78,
+          "startDate": "2024-06-01",
+          "description": "React animation library for smooth interactions"
+        }
+      ]
+    },
+    {
+      "category": "Design & Creative",
+      "icon": "Palette",
+      "items": [
+        {
+          "name": "Adobe Photoshop",
+          "level": 97,
+          "startDate": "2014-08-01",
+          "description": "Photo editing and digital image manipulation"
+        },
+        {
+          "name": "Illustrator", 
+          "level": 93,
+          "startDate": "2019-08-01",
+          "description": "Vector graphics and logo design"
+        },
+        {
+          "name": "Photography",
+          "level": 90,
+          "startDate": "2012-06-01",
+          "description": "Digital photography and visual storytelling"
+        },
+        {
+          "name": "UI/UX Design",
+          "level": 82,
+          "startDate": "2022-08-01",
+          "description": "User interface and experience design principles"
+        },
+        {
+          "name": "Prototyping",
+          "level": 78,
+          "startDate": "2022-08-01",
+          "description": "Interactive prototypes and user testing"
+        },
+        {
+          "name": "3D & CGI",
+          "level": 82,
+          "startDate": "2021-12-01",
+          "description": "3D modeling, rendering, and computer graphics"
+        },
+        {
+          "name": "Motion Graphics",
+          "level": 78,
+          "startDate": "2022-08-01",
+          "description": "Animated graphics and visual effects for digital media"
+        }
+      ]
+    }
+  ]
+}
