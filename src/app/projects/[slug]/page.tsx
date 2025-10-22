@@ -9,6 +9,8 @@ import Link from "next/link";
 import { getProjectBySlug, getAllProjects } from "@/lib/projects-data";
 import { Metadata } from 'next';
 import { Project } from '@/lib/types/project';
+import Header from "@/components/common/header";
+import Footer from "@/components/common/footer";
 
 interface ProjectPageProps {
   params: {
@@ -74,75 +76,63 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header Navigation */}
-      <div className="container py-8">
-        <Button
-          variant="ghost"
-          asChild
-          className="mb-8 uniform-hover"
-        >
-          <Link href="/#projects">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Projects
-          </Link>
-        </Button>
+      <Header />
+      
+      <main className="pt-20"> {/* Add padding to account for fixed header */}
+        {/* Enhanced Header Navigation */}
+        <div className="container py-6">
+        <div className="flex items-center justify-between">
+          <Button
+            variant="ghost"
+            asChild
+            className="uniform-hover group"
+          >
+            <Link href="/#projects" className="flex items-center gap-2">
+              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+              Back to Projects
+            </Link>
+          </Button>
+          
+          {/* Breadcrumb */}
+          <div className="hidden md:flex items-center gap-2 text-sm text-foreground/60">
+            <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+            <span>/</span>
+            <Link href="/#projects" className="hover:text-primary transition-colors">Projects</Link>
+            <span>/</span>
+            <span className="text-foreground/90">{project.title}</span>
+          </div>
+        </div>
       </div>
 
-      {/* Hero Section */}
-      <section className="container pb-16">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="space-y-8">
+      {/* Enhanced Hero Section */}
+      <section className="container pb-20">
+        <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
+          <div className="space-y-10">
             <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
-                  {project.category}
-                </Badge>
-                {project.featured && (
-                  <Badge variant="outline" className="border-amber-200 text-amber-700 bg-amber-50">
-                    Featured Project
-                  </Badge>
-                )}
-              </div>
-              <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl font-headline">
+              <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl font-headline leading-tight">
                 <span className="text-gradient from-foreground to-primary">
                   {project.title}
                 </span>
               </h1>
-              <p className="text-xl text-foreground/70 leading-relaxed">
+              <p className="text-xl text-foreground/70 leading-relaxed max-w-2xl">
                 {project.shortDescription}
               </p>
             </div>
 
-            {/* Project Meta Info */}
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-              <div className="flex items-center gap-2 text-sm text-foreground/70">
-                <Calendar className="h-4 w-4" />
-                <span>{project.year}</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-foreground/70">
-                <Clock className="h-4 w-4" />
-                <span>{project.duration}</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-foreground/70">
-                <Users className="h-4 w-4" />
-                <span>{project.teamSize}</span>
-              </div>
-            </div>
-
-            {/* Action Buttons */}
+            {/* Enhanced Action Buttons */}
             <div className="flex flex-wrap gap-4">
               {project.liveUrl && (
-                <Button asChild className="cta-primary">
+                <Button asChild className="cta-primary group">
                   <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="mr-2 h-4 w-4" />
+                    <ExternalLink className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
                     View Project
                   </Link>
                 </Button>
               )}
               {project.githubUrl && (
-                <Button variant="outline" asChild className="uniform-hover">
+                <Button variant="outline" asChild className="uniform-hover group">
                   <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                    <Github className="mr-2 h-4 w-4" />
+                    <Github className="mr-2 h-4 w-4 transition-transform group-hover:rotate-12" />
                     View Code
                   </Link>
                 </Button>
@@ -150,26 +140,30 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
             </div>
           </div>
 
-          {/* Featured Image */}
+          {/* Enhanced Featured Image */}
           <div className="relative">
-            <div className="aspect-video relative overflow-hidden rounded-lg border border-border/50 shadow-medium">
-              <Image
-                src={project.featuredImage}
-                alt={`Captura de pantalla de ${project.title}`}
-                fill
-                className="object-cover"
-                priority
-              />
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative aspect-video overflow-hidden rounded-2xl border border-border/50 shadow-medium hover:shadow-large transition-all duration-500">
+                <Image
+                  src={project.featuredImage}
+                  alt={`Screenshot of ${project.title}`}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Technologies */}
+      {/* Technologies Section */}
       <section className="container pb-16">
-        <Card className="border border-border/50 shadow-soft">
+        <Card className="border border-border/20 shadow-sm">
           <CardHeader>
-            <CardTitle className="text-2xl font-bold">Technologies Used</CardTitle>
+            <CardTitle className="text-2xl font-semibold">Technologies Used</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-3">
@@ -177,7 +171,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
                 <Badge
                   key={tech}
                   variant="secondary"
-                  className="text-sm font-medium bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-colors"
+                  className="text-sm font-medium bg-muted hover:bg-muted/80 text-foreground border-0 py-2 px-3 transition-colors rounded-md"
                 >
                   {tech}
                 </Badge>
@@ -187,14 +181,15 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
         </Card>
       </section>
 
-      {/* Detailed Description */}
+      {/* Project Details */}
       <section className="container pb-16">
-        <Card className="border border-border/50 shadow-soft">
+        <Card className="border border-border/20 shadow-sm">
           <CardHeader>
-            <CardTitle className="text-2xl font-bold">Project Description</CardTitle>
+            <CardTitle className="text-2xl font-semibold">Project Details</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-6">
-            <div className="prose prose-gray max-w-none">
+          <CardContent className="space-y-8">
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Description</h3>
               <p className="text-lg leading-relaxed text-foreground/80">
                 {project.fullDescription}
               </p>
@@ -202,7 +197,12 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
 
             {project.challenges && (
               <div>
-                <h3 className="text-xl font-semibold mb-3">Challenges & Solutions</h3>
+                <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                  <svg className="w-5 h-5 text-foreground/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                  </svg>
+                  Challenges & Solutions
+                </h3>
                 <p className="text-foreground/80 leading-relaxed">
                   {project.challenges}
                 </p>
@@ -211,7 +211,12 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
 
             {project.results && (
               <div>
-                <h3 className="text-xl font-semibold mb-3">Results Achieved</h3>
+                <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                  <svg className="w-5 h-5 text-foreground/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Results Achieved
+                </h3>
                 <p className="text-foreground/80 leading-relaxed">
                   {project.results}
                 </p>
@@ -221,17 +226,17 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
         </Card>
       </section>
 
-      {/* Image Gallery */}
+      {/* Project Gallery */}
       {project.gallery && project.gallery.length > 0 && (
         <section className="container pb-16">
-          <Card className="border border-border/50 shadow-soft">
+          <Card className="border border-border/20 shadow-sm">
             <CardHeader>
-              <CardTitle className="text-2xl font-bold">Project Gallery</CardTitle>
+              <CardTitle className="text-2xl font-semibold">Project Gallery</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid gap-6 md:grid-cols-2">
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {project.gallery.map((image: { url: string; alt: string }, index: number) => (
-                  <div key={index} className="aspect-video relative overflow-hidden rounded-lg border border-border/30">
+                  <div key={index} className="aspect-video relative overflow-hidden rounded-lg border border-border/20">
                     <Image
                       src={image.url}
                       alt={image.alt}
@@ -240,9 +245,9 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
                     />
                   </div>
                 ))}
-              </div>
-            </CardContent>
-          </Card>
+                </div>
+              </CardContent>
+            </Card>
         </section>
       )}
 
@@ -271,6 +276,9 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
           </CardContent>
         </Card>
       </section>
+      </main>
+      
+      <Footer />
     </div>
   );
 };
