@@ -1,0 +1,8 @@
+{
+  "title": "Let's Build Something Amazing Together",
+  "description": "I'm always excited to discuss new projects, collaborations, or creative ideas. Fill out the form and I'll get back to you within 24 hours.",
+  "cta": {
+    "label": "Send Message",
+    "link": "/api/contact"
+  }
+}

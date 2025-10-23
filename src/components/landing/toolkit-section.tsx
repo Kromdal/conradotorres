@@ -64,33 +64,37 @@ const calculateExperience = (startDate: string): string => {
 
 const toolkit = toolkitData.toolkit as ToolkitCategory[];
 
+// Import JSON statically
+// @ts-ignore
+import toolkitSectionData from "@/data/sections/toolkit.json";
+const { title, description, stats } = toolkitSectionData as {
+  title: string;
+  description: string;
+  stats: { label: string; value: string }[];
+};
+
 const ToolkitSection = () => {
+
   return (
-  <section id="toolkit" className="w-full pt-5 md:pt-7 lg:pt-10 mt-15 md:mt-20 lg:mt-28 pb-0 relative overflow-hidden">
+    <section id="toolkit" className="w-full pt-5 md:pt-7 lg:pt-10 mt-15 md:mt-20 lg:mt-28 pb-0 relative overflow-hidden">
       {/* Background decoration - mantener sutil */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/10 to-background" />
-      
       <div className="container px-4 md:px-6 relative z-10">
         <ScrollFadeIn className="text-center mb-16">
           <div className="space-y-6 max-w-6xl mx-auto">
             <div className="inline-block">
               <span className="px-4 py-2 text-sm font-semibold text-primary bg-primary/10 rounded-full border border-primary/20">
-                Tech Stack
+                {title}
               </span>
             </div>
             <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-headline">
               <span className="text-gradient from-foreground to-primary">
-                My Toolkit
+                {description}
               </span>
             </h2>
-            <p className="text-foreground/70 text-lg leading-relaxed">
-              The technologies and tools I leverage to create exceptional digital experiences, 
-              from concept to deployment.
-            </p>
           </div>
         </ScrollFadeIn>
-        
-  <ScrollStagger className="mx-auto grid max-w-6xl gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.1}>
+        <ScrollStagger className="mx-auto grid max-w-6xl gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.1}>
           {toolkit.map((category, index) => {
             const IconComponent = iconMap[category.icon];
             return (
@@ -151,18 +155,12 @@ const ToolkitSection = () => {
         <ScrollFadeIn className="mt-16 text-center">
           <div className="inline-block p-6 rounded-2xl bg-card border border-border/50 shadow-soft">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 divide-y md:divide-y-0 md:divide-x divide-border/30">
-              <div className="space-y-1 py-2 md:py-0">
-                <div className="text-2xl font-bold text-primary">25+</div>
-                <div className="text-sm text-foreground/70">Technologies</div>
-              </div>
-              <div className="space-y-1 py-2 md:py-0">
-                <div className="text-2xl font-bold text-primary">5+</div>
-                <div className="text-sm text-foreground/70">Years Experience</div>
-              </div>
-              <div className="space-y-1 py-2 md:py-0">
-                <div className="text-2xl font-bold text-primary">100+</div>
-                <div className="text-sm text-foreground/70">Projects Completed</div>
-              </div>
+              {stats.map((stat: { label: string; value: string }, i: number) => (
+                <div key={i} className="space-y-1 py-2 md:py-0">
+                  <div className="text-2xl font-bold text-primary">{stat.value}</div>
+                  <div className="text-sm text-foreground/70">{stat.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </ScrollFadeIn>

@@ -5,8 +5,32 @@ import { Check, XCircle } from "lucide-react";
 import { Github, Linkedin } from "lucide-react";
 import SubElevenIcon from "@/components/icons/SubelevenIcon";
 
+
+// Import JSON statically
+// @ts-ignore
+import contactFormData from "@/data/sections/contact-form.json";
+const {
+  introTitle,
+  introDescription,
+  introNote,
+  socialLinks,
+  formFields,
+  submitLabel,
+  sendingLabel,
+  successMessage,
+  errorMessage,
+  errorEmail
+} = contactFormData as any;
+
 const ContactForm = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+
+  const [formData, setFormData] = useState(() => {
+    const initial: Record<string, string> = {};
+    formFields.forEach((field: any) => {
+      initial[field.name] = "";
+    });
+    return initial;
+  });
   const [status, setStatus] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -17,17 +41,19 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("loading");
-
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
       if (response.ok) {
         setStatus("success");
-        setFormData({ name: "", email: "", message: "" });
+        setFormData((prev) => {
+          const reset: Record<string, string> = {};
+          Object.keys(prev).forEach((key) => { reset[key] = ""; });
+          return reset;
+        });
       } else {
         setStatus("error");
       }
@@ -36,119 +62,86 @@ const ContactForm = () => {
     }
   };
 
+  // Icon mapping
+  const iconMap: Record<string, React.ElementType> = {
+    Github,
+    Linkedin,
+    SubElevenIcon
+  };
+
   return (
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
       {/* Intro Section */}
-  <div className="space-y-6 text-left max-w-6xl">
+      <div className="space-y-6 text-left max-w-6xl">
         <div className="space-y-4">
           <h3 className="text-3xl sm:text-4xl font-bold text-foreground leading-tight">
-            Let&apos;s <span className="text-gradient from-foreground to-primary">Build Something Amazing</span> Together
+            {introTitle}
           </h3>
         </div>
         <div className="space-y-3">
           <p className="text-base text-foreground/90 leading-relaxed max-w-6xl">
-            I&apos;m always excited to discuss <span className="text-gradient from-foreground to-primary font-medium">new projects</span>, <span className="text-gradient from-foreground to-primary font-medium">collaborations</span>, or creative ideas.
+            {introDescription}
           </p>
           <p className="text-sm text-foreground/70">
-            Fill out the form and I&apos;ll get back to you within 24 hours.
+            {introNote}
           </p>
           {/* Social Links */}
-            <div className="flex items-center justify-center gap-2">
-              <Button
-                variant="ghost"
-                size="sm"
-                asChild
-                className="w-10 h-10 uniform-hover"
-              >
-                <a
-                  href="https://github.com/Kromdal/conradotorres"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
+          <div className="flex items-center justify-center gap-2">
+            {socialLinks.map((link: any, idx: number) => {
+              const Icon = iconMap[link.icon];
+              return (
+                <Button
+                  key={link.label}
+                  variant="ghost"
+                  size="sm"
+                  asChild
+                  className="w-10 h-10 uniform-hover"
                 >
-                  <Github className="h-4 w-4" />
-                </a>
-              </Button>
-
-              <Button
-                variant="ghost"
-                size="sm"
-                asChild
-                className="w-10 h-10 uniform-hover"
-              >
-                <a
-                  href="https://www.linkedin.com/in/ctlopez/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="h-4 w-4" />
-                </a>
-              </Button>
-
-              <Button
-                variant="ghost"
-                size="sm"
-                asChild
-                className="w-10 h-10 uniform-hover"
-              >
-                <a
-                  href="https://www.subeleven.es/en"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Subeleven"
-                >
-                  <SubElevenIcon className="h-4 w-4" />
-                </a>
-              </Button>
-            </div>
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={link.label}
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                </Button>
+              );
+            })}
+          </div>
         </div>
       </div>
 
       {/* Form Section */}
       <form onSubmit={handleSubmit} className="space-y-6 bg-card p-8 rounded-lg border border-border/50 shadow-sm">
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-foreground text-left">Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            placeholder="Enter your name"
-            className="mt-2 block w-full rounded-md border border-border bg-background p-3 text-sm focus:border-primary focus:ring-2 focus:ring-primary focus:outline-none"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-foreground text-left">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            placeholder="Enter your email"
-            className="mt-2 block w-full rounded-md border border-border bg-background p-3 text-sm focus:border-primary focus:ring-2 focus:ring-primary focus:outline-none"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="message" className="block text-sm font-medium text-foreground text-left">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            placeholder="Write your message here..."
-            className="mt-2 block w-full rounded-md border border-border bg-background p-3 text-sm focus:border-primary focus:ring-2 focus:ring-primary focus:outline-none"
-            rows={5}
-          />
-        </div>
-
+        {formFields.map((field: any) => (
+          <div key={field.name}>
+            <label htmlFor={field.name} className="block text-sm font-medium text-foreground text-left">{field.label}</label>
+            {field.type === "textarea" ? (
+              <textarea
+                id={field.name}
+                name={field.name}
+                value={formData[field.name]}
+                onChange={handleChange}
+                required={field.required}
+                placeholder={field.placeholder}
+                className="mt-2 block w-full rounded-md border border-border bg-background p-3 text-sm focus:border-primary focus:ring-2 focus:ring-primary focus:outline-none"
+                rows={field.rows || 5}
+              />
+            ) : (
+              <input
+                type={field.type}
+                id={field.name}
+                name={field.name}
+                value={formData[field.name]}
+                onChange={handleChange}
+                required={field.required}
+                placeholder={field.placeholder}
+                className="mt-2 block w-full rounded-md border border-border bg-background p-3 text-sm focus:border-primary focus:ring-2 focus:ring-primary focus:outline-none"
+              />
+            )}
+          </div>
+        ))}
         <Button
           type="submit"
           variant="default"
@@ -156,23 +149,21 @@ const ContactForm = () => {
           className="w-full"
           disabled={status === "loading"}
         >
-          {status === "loading" ? "Sending..." : "Send Message"}
+          {status === "loading" ? sendingLabel : submitLabel}
         </Button>
-
         {status === "success" && (
           <Alert className="mt-4">
             <Check className="h-4 w-4 text-green-600" />
             <div>
-              <AlertTitle>Message sent successfully!</AlertTitle>
+              <AlertTitle>{successMessage}</AlertTitle>
             </div>
           </Alert>
         )}
-
         {status === "error" && (
           <Alert variant="destructive" className="mt-4">
             <XCircle className="h-4 w-4" />
             <div>
-              <AlertTitle>Something went wrong. Try again or write to <a href="mailto:hello@subeleven.es" className="text-primary">hello@subeleven.es</a></AlertTitle>
+              <AlertTitle>{errorMessage} <a href={`mailto:${errorEmail}`} className="text-primary">{errorEmail}</a></AlertTitle>
             </div>
           </Alert>
         )}

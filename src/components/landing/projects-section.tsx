@@ -14,30 +14,40 @@ import { ProjectPreview } from "@/lib/types/project"
 const projectsData = getFeaturedProjects().slice(0, 3);
 const projects: ProjectPreview[] = convertProjectsToPreview(projectsData);
 
+
+// Import JSON statically
+// @ts-ignore
+import projectsDataSection from "@/data/sections/projects.json";
+const { title, subtitle, description, cta } = projectsDataSection as {
+  title: string;
+  subtitle: string;
+  description: string;
+  cta: { label: string; link: string };
+};
+
 const ProjectsSection = () => {
+
   return (
-  <section id="projects" className="w-full pt-5 md:pt-7 lg:pt-10 mt-15 md:mt-20 lg:mt-28 pb-0 bg-background">
+    <section id="projects" className="w-full pt-5 md:pt-7 lg:pt-10 mt-15 md:mt-20 lg:mt-28 pb-0 bg-background">
       <div className="container px-4 md:px-6">
         <ScrollFadeIn className="text-center mb-16">
           <div className="space-y-6 max-w-6xl mx-auto">
             <div className="inline-block">
               <span className="px-4 py-2 text-sm font-semibold text-primary bg-primary/10 rounded-full border border-primary/20">
-                Featured Work
+                {title}
               </span>
             </div>
             <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-headline">
               <span className="text-gradient from-foreground to-primary">
-                Recent Projects
+                {subtitle}
               </span>
             </h2>
             <p className="text-foreground/70 text-lg leading-relaxed">
-              A curated selection of projects that demonstrate my expertise in modern web development, 
-              from complex SaaS platforms to optimized user experiences.
+              {description}
             </p>
           </div>
         </ScrollFadeIn>
-        
-  <ScrollStagger className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.1}>
+        <ScrollStagger className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.1}>
           {projects.map((project, index) => (
             <ScrollStaggerItem key={index}>
               <Card className="flex flex-col h-full group overflow-hidden border border-border/50 shadow-soft hover:shadow-medium card-uniform bg-card">
@@ -96,7 +106,7 @@ const ProjectsSection = () => {
         </ScrollStagger>
         <div className="mt-8 text-center">
           <Button asChild className="cta-primary">
-            <Link href="/projects">View all projects</Link>
+            <Link href={cta.link}>{cta.label}</Link>
           </Button>
         </div>
       </div>

@@ -1,0 +1,51 @@
+{
+  "introTitle": "Let's Build Something Amazing Together",
+  "introDescription": "I'm always excited to discuss new projects, collaborations, or creative ideas.",
+  "introNote": "Fill out the form and I'll get back to you within 24 hours.",
+  "socialLinks": [
+    {
+      "label": "GitHub",
+      "icon": "Github",
+      "url": "https://github.com/Kromdal/conradotorres"
+    },
+    {
+      "label": "LinkedIn",
+      "icon": "Linkedin",
+      "url": "https://www.linkedin.com/in/ctlopez/"
+    },
+    {
+      "label": "Subeleven",
+      "icon": "SubElevenIcon",
+      "url": "https://www.subeleven.es/en"
+    }
+  ],
+  "formFields": [
+    {
+      "name": "name",
+      "type": "text",
+      "label": "Name",
+      "placeholder": "Enter your name",
+      "required": true
+    },
+    {
+      "name": "email",
+      "type": "email",
+      "label": "Email",
+      "placeholder": "Enter your email",
+      "required": true
+    },
+    {
+      "name": "message",
+      "type": "textarea",
+      "label": "Message",
+      "placeholder": "Write your message here...",
+      "required": true,
+      "rows": 5
+    }
+  ],
+  "submitLabel": "Send Message",
+  "sendingLabel": "Sending...",
+  "successMessage": "Message sent successfully!",
+  "errorMessage": "Something went wrong. Try again or write to",
+  "errorEmail": "hello@subeleven.es"
+}

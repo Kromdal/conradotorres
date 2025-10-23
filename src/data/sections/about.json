@@ -1,0 +1,9 @@
+{
+  "title": "About Me",
+  "description": "I am passionate about building digital products that solve real problems. My focus is on clean code, scalable architecture, and delightful user experiences.",
+  "stats": [
+    {"label": "Years Experience", "value": "5+"},
+    {"label": "Projects Completed", "value": "100+"},
+    {"label": "Technologies", "value": "25+"}
+  ]
+}

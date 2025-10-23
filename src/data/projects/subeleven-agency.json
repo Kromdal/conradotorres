@@ -1,0 +1,22 @@
+{
+  "slug": "subeleven-agency",
+  "title": "Subeleven (Founder)",
+  "shortDescription": "Web development agency specialized in complete digital solutions for business growth.",
+  "fullDescription": "Subeleven is my personal agency where I manage the complete project lifecycle for clients, from UX/UI design to implementation and SEO optimization. We specialize in creating web experiences that drive business growth, combining strategic design with high-quality technical development.",
+  "category": "Digital Agency",
+  "technologies": ["React", "Next.js", "TypeScript", "Figma", "SEO", "Analytics"],
+  "featuredImage": "/images/placeholder.jpg",
+  "gallery": [
+    {"url": "/images/placeholder.jpg", "alt": "Subeleven website"},
+    {"url": "/images/placeholder.jpg", "alt": "Agency workflow process"}
+  ],
+  "year": "2024",
+  "duration": "Ongoing",
+  "teamSize": "Founder",
+  "liveUrl": "https://subeleven.es",
+  "githubUrl": "",
+  "tags": [],
+  "featured": true,
+  "challenges": "Creating a solid brand identity and scalable processes to handle multiple simultaneous projects. I developed a custom project management system and methodologies that enable consistent delivery of high-quality results.",
+  "results": "The agency has successfully completed over 15 web projects, with clients reporting average increases of 150% in conversions and significant improvements in SEO rankings."
+}

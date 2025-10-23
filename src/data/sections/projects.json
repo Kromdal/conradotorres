@@ -1,0 +1,9 @@
+{
+  "title": "Featured Work",
+  "subtitle": "Recent Projects",
+  "description": "A curated selection of projects that demonstrate my expertise in modern web development, from complex SaaS platforms to optimized user experiences.",
+  "cta": {
+    "label": "View all projects",
+    "link": "/projects"
+  }
+}

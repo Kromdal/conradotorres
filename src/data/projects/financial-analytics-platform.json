@@ -1,0 +1,23 @@
+{
+  "slug": "financial-analytics-platform",
+  "title": "Real-Time Financial Analytics Platform (SaaS)",
+  "shortDescription": "Complex dashboard for visualizing millions of daily banking transactions with high performance under heavy data loads.",
+  "fullDescription": "As the sole frontend developer, I built a comprehensive real-time financial analytics platform that processes and visualizes millions of banking transactions daily. The project required high performance under heavy data loads, implementing advanced optimization techniques and virtualization to maintain a fluid and responsive interface.",
+  "category": "Enterprise SaaS",
+  "technologies": ["React", "TypeScript", "D3.js", "WebSocket", "Redis", "Docker", "Microservices"],
+  "featuredImage": "/images/placeholder.jpg",
+  "gallery": [
+    {"url": "/images/placeholder.jpg", "alt": "Main dashboard with real-time metrics"},
+    {"url": "/images/placeholder.jpg", "alt": "Advanced analytics panel"},
+    {"url": "/images/placeholder.jpg", "alt": "Complex data visualizations"}
+  ],
+  "year": "2024",
+  "duration": "8 months",
+  "teamSize": "1 Frontend Developer",
+  "featured": true,
+  "liveUrl": "",
+  "githubUrl": "",
+  "tags": [],
+  "challenges": "The main challenge was handling smooth visualization of millions of real-time records without compromising performance. I implemented component virtualization, intelligent lazy loading, and an optimized cache system that reduced loading times by 70%.",
+  "results": "The platform successfully processes over 5 million transactions daily with latency under 200ms. The client reported a 40% increase in operational efficiency and a 60% reduction in data analysis time."
+}
