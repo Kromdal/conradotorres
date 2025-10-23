@@ -79,7 +79,8 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
       <main className="pt-20"> {/* Add padding to account for fixed header */}
         {/* Enhanced Header Navigation */}
         <div className="container py-6">
-        <div className="flex items-center justify-between">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex items-center justify-between">
           <Button
             variant="ghost"
             asChild
@@ -101,10 +102,12 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
           </div>
         </div>
       </div>
+  </div>
 
       {/* Enhanced Hero Section */}
       <section className="container pb-20">
-        <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
           <div className="space-y-10">
             <div className="space-y-4">
               <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl font-headline leading-tight">
@@ -156,11 +159,13 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
             </div>
           </div>
         </div>
-      </section>
+          </div>
+        </section>
 
       {/* Technologies Section */}
       <section className="container pb-16">
-        <Card className="border border-border/20 shadow-sm">
+        <div className="max-w-6xl mx-auto">
+          <Card className="border border-border/20 shadow-sm">
           <CardHeader>
             <CardTitle className="text-2xl font-semibold">Technologies Used</CardTitle>
           </CardHeader>
@@ -178,11 +183,13 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
             </div>
           </CardContent>
         </Card>
-      </section>
+          </div>
+        </section>
 
       {/* Project Details */}
       <section className="container pb-16">
-        <Card className="border border-border/20 shadow-sm">
+        <div className="max-w-6xl mx-auto">
+          <Card className="border border-border/20 shadow-sm">
           <CardHeader>
             <CardTitle className="text-2xl font-semibold">Project Details</CardTitle>
           </CardHeader>
@@ -213,12 +220,14 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
             )}
           </CardContent>
         </Card>
-      </section>
+          </div>
+        </section>
 
       {/* Project Gallery */}
       {project.gallery && project.gallery.length > 0 && (
         <section className="container pb-16">
-          <Card className="border border-border/20 shadow-sm">
+          <div className="max-w-6xl mx-auto">
+            <Card className="border border-border/20 shadow-sm">
             <CardHeader>
               <CardTitle className="text-2xl font-semibold">Project Gallery</CardTitle>
             </CardHeader>
@@ -237,12 +246,14 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
                 </div>
               </CardContent>
             </Card>
+          </div>
         </section>
       )}
 
       {/* CTA Section */}
       <section className="container pb-20">
-        <Card className="border border-border/50 shadow-soft bg-gradient-to-br from-primary/5 to-accent/5">
+        <div className="max-w-6xl mx-auto">
+          <Card className="border border-border/50 shadow-soft bg-gradient-to-br from-primary/5 to-accent/5">
           <CardContent className="text-center py-12">
             <h2 className="text-3xl font-bold mb-4">Like this project?</h2>
             <p className="text-lg text-foreground/70 mb-8 max-w-6xl mx-auto">
@@ -264,7 +275,8 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
             </div>
           </CardContent>
         </Card>
-      </section>
+          </div>
+        </section>
       </main>
       
     </div>
