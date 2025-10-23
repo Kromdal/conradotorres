@@ -72,7 +72,7 @@ const ToolkitSection = () => {
       
       <div className="container px-4 md:px-6 relative z-10">
         <ScrollFadeIn className="text-center mb-16">
-          <div className="space-y-6 max-w-3xl mx-auto">
+          <div className="space-y-6 max-w-6xl mx-auto">
             <div className="inline-block">
               <span className="px-4 py-2 text-sm font-semibold text-primary bg-primary/10 rounded-full border border-primary/20">
                 Tech Stack
@@ -90,7 +90,7 @@ const ToolkitSection = () => {
           </div>
         </ScrollFadeIn>
         
-        <ScrollStagger className="mx-auto grid max-w-5xl gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.1}>
+  <ScrollStagger className="mx-auto grid max-w-6xl gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.1}>
           {toolkit.map((category, index) => {
             const IconComponent = iconMap[category.icon];
             return (

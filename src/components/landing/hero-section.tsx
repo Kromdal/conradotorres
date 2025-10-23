@@ -15,7 +15,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/95 to-background" />
       
       <div className="container px-4 md:px-6 relative z-10">
-        <ScrollFadeIn className="max-w-4xl mx-auto text-center space-y-8">
+  <ScrollFadeIn className="max-w-6xl mx-auto text-center space-y-8">
           {/* Main Content */}
           <div className="space-y-6">
             <div className="space-y-4">
@@ -32,7 +32,7 @@ const HeroSection = () => {
               </div>
             </div>
             
-            <p className="text-lg md:text-xl leading-relaxed text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl leading-relaxed text-muted-foreground max-w-6xl mx-auto">
               I build high-performance web applications with a focus on user experience and clean architecture. 
               Specialized in React, TypeScript, and modern development ecosystems.
             </p>

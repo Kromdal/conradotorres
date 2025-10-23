@@ -112,9 +112,10 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
                   {project.title}
                 </span>
               </h1>
-              <p className="text-xl text-foreground/70 leading-relaxed max-w-2xl">
+              <p className="text-xl text-foreground/70 leading-relaxed max-w-6xl">
                 {project.shortDescription}
               </p>
+              
             </div>
 
             {/* Enhanced Action Buttons */}
@@ -244,7 +245,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
         <Card className="border border-border/50 shadow-soft bg-gradient-to-br from-primary/5 to-accent/5">
           <CardContent className="text-center py-12">
             <h2 className="text-3xl font-bold mb-4">Like this project?</h2>
-            <p className="text-lg text-foreground/70 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-foreground/70 mb-8 max-w-6xl mx-auto">
               At Subeleven, we create digital solutions that drive business growth. 
               Let's talk about your next project!
             </p>

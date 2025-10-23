@@ -24,8 +24,9 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full glass border-b border-border/50">
-      <div className="container flex h-16 items-center">
-        <div className="mr-4 hidden md:flex">
+      <div className="container">
+        <div className="max-w-6xl mx-auto flex h-16 items-center">
+          <div className="mr-4 hidden md:flex">
           <Link 
             href="/"
             className="mr-6 flex items-center space-x-2"
@@ -128,6 +129,7 @@ export default function Header() {
             </Button>
           </nav>
         </div>
+      </div>
       </div>
     </header>
   )

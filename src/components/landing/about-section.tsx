@@ -13,7 +13,7 @@ const AboutSection = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-background" />
       
       <div className="container px-4 md:px-6 relative z-10">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 items-center max-w-6xl mx-auto">
+  <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 items-center max-w-6xl mx-auto">
           <ScrollFadeIn direction="right" className="order-2 lg:order-1 space-y-8">
             <div className="space-y-4">
               <div className="inline-block">

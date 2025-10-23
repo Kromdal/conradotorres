@@ -6,12 +6,12 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import Image from "next/image"
 import Link from "next/link"
 import { ScrollFadeIn, ScrollStagger, ScrollStaggerItem } from "@/components/animations"
-import { getAllProjects } from "@/lib/projects-data"
+import { getFeaturedProjects } from "@/lib/projects-data"
 import { convertProjectsToPreview } from "@/lib/utils/project-utils"
 import { ProjectPreview } from "@/lib/types/project"
 
-// Obtener los proyectos y convertirlos a vista previa
-const projectsData = getAllProjects();
+// Obtener los proyectos destacados y convertirlos a vista previa (limitar a 3)
+const projectsData = getFeaturedProjects().slice(0, 3);
 const projects: ProjectPreview[] = convertProjectsToPreview(projectsData);
 
 const ProjectsSection = () => {
@@ -19,7 +19,7 @@ const ProjectsSection = () => {
   <section id="projects" className="w-full pt-5 md:pt-7 lg:pt-10 mt-15 md:mt-20 lg:mt-28 pb-0 bg-background">
       <div className="container px-4 md:px-6">
         <ScrollFadeIn className="text-center mb-16">
-          <div className="space-y-6 max-w-3xl mx-auto">
+          <div className="space-y-6 max-w-6xl mx-auto">
             <div className="inline-block">
               <span className="px-4 py-2 text-sm font-semibold text-primary bg-primary/10 rounded-full border border-primary/20">
                 Featured Work
@@ -37,7 +37,7 @@ const ProjectsSection = () => {
           </div>
         </ScrollFadeIn>
         
-        <ScrollStagger className="grid gap-8 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.1}>
+  <ScrollStagger className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.1}>
           {projects.map((project, index) => (
             <ScrollStaggerItem key={index}>
               <Card className="flex flex-col h-full group overflow-hidden border border-border/50 shadow-soft hover:shadow-medium card-uniform bg-card">
@@ -94,6 +94,11 @@ const ProjectsSection = () => {
             </ScrollStaggerItem>
           ))}
         </ScrollStagger>
+        <div className="mt-8 text-center">
+          <Button asChild className="cta-primary">
+            <Link href="/projects">View all projects</Link>
+          </Button>
+        </div>
       </div>
     </section>
   )
