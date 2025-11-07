@@ -32,6 +32,7 @@ const ContactForm = () => {
     return initial;
   });
   const [status, setStatus] = useState("");
+  const [errorDetails, setErrorDetails] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -41,6 +42,7 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("loading");
+    setErrorDetails(null);
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -55,10 +57,17 @@ const ContactForm = () => {
           return reset;
         });
       } else {
+        try {
+          const data = await response.json();
+          setErrorDetails(data?.error ? `${data.error}${data.details ? `: ${data.details}` : ""}` : "Unexpected error");
+        } catch {
+          setErrorDetails("Unexpected server error");
+        }
         setStatus("error");
       }
     } catch {
       setStatus("error");
+      setErrorDetails("Network error");
     }
   };
 
@@ -164,6 +173,11 @@ const ContactForm = () => {
             <XCircle className="h-4 w-4" />
             <div>
               <AlertTitle>{errorMessage} <a href={`mailto:${errorEmail}`} className="text-primary">{errorEmail}</a></AlertTitle>
+              {errorDetails && (
+                <AlertDescription className="mt-2 text-xs text-foreground/70 break-words">
+                  {errorDetails}
+                </AlertDescription>
+              )}
             </div>
           </Alert>
         )}
