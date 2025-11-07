@@ -5,12 +5,7 @@
   "fullDescription": "As the sole frontend developer, I built a comprehensive real-time financial analytics platform that processes and visualizes millions of banking transactions daily. The project required high performance under heavy data loads, implementing advanced optimization techniques and virtualization to maintain a fluid and responsive interface.",
   "category": "Enterprise SaaS",
   "technologies": ["React", "TypeScript", "D3.js", "WebSocket", "Redis", "Docker", "Microservices"],
-  "featuredImage": "/images/placeholder.jpg",
-  "gallery": [
-    {"url": "/images/placeholder.jpg", "alt": "Main dashboard with real-time metrics"},
-    {"url": "/images/placeholder.jpg", "alt": "Advanced analytics panel"},
-    {"url": "/images/placeholder.jpg", "alt": "Complex data visualizations"}
-  ],
+  "featuredImage": "/images/financial-analytics-platform.jpg",
   "year": "2024",
   "duration": "8 months",
   "teamSize": "1 Frontend Developer",

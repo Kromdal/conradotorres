@@ -8,10 +8,9 @@ import Image from 'next/image'
 // Import JSON statically
 // @ts-ignore
 import aboutData from "@/data/sections/about.json";
-const { title, description, stats } = aboutData as {
+const { title, description } = aboutData as {
   title: string;
   description: string;
-  stats: { label: string; value: string }[];
 };
 
 const AboutSection = () => {
@@ -35,14 +34,6 @@ const AboutSection = () => {
                   {description}
                 </span>
               </h2>
-            </div>
-            <div className="grid grid-cols-2 gap-4 pt-6">
-              {stats.map((stat: { label: string; value: string }, i: number) => (
-                <div key={i} className="p-4 bg-card border border-border rounded-xl card-uniform">
-                  <h4 className="font-semibold text-sm text-foreground mb-1">{stat.label}</h4>
-                  <p className="text-xs text-muted-foreground">{stat.value}</p>
-                </div>
-              ))}
             </div>
           </ScrollFadeIn>
           <ScrollFadeIn direction="left" className="order-1 lg:order-2">

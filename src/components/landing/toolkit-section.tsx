@@ -1,5 +1,5 @@
 "use client";
-
+import { useState, useEffect } from "react";
 import { ScrollFadeIn, ScrollStagger, ScrollStaggerItem } from "@/components/animations"
 import { Badge } from "@/components/ui/badge"
 import { SkillTooltip } from "@/components/ui/skill-tooltip"
@@ -42,24 +42,30 @@ const getProficiency = (level: number): string => {
 };
 
 // Function to calculate experience based on start date
-const calculateExperience = (startDate: string): string => {
-  const start = new Date(startDate);
-  const now = new Date();
-  const diffMs = now.getTime() - start.getTime();
-  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-  
-  if (diffDays < 7) {
-    return diffDays === 1 ? "1 day" : `${diffDays} days`;
-  } else if (diffDays < 30) {
-    const weeks = Math.floor(diffDays / 7);
-    return weeks === 1 ? "1 week" : `${weeks} weeks`;
-  } else if (diffDays < 365) {
-    const months = Math.floor(diffDays / 30);
-    return months === 1 ? "1 month" : `${months} months`;
-  } else {
-    const years = Math.floor(diffDays / 365);
-    return years === 1 ? "1 year" : `${years}+ years`;
-  }
+// Client-only experience calculation
+const useExperience = (startDate: string) => {
+  const [experience, setExperience] = useState<string>("");
+  useEffect(() => {
+    const start = new Date(startDate);
+    const now = new Date();
+    const diffMs = now.getTime() - start.getTime();
+    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    let result = "";
+    if (diffDays < 7) {
+      result = diffDays === 1 ? "1 day" : `${diffDays} days`;
+    } else if (diffDays < 30) {
+      const weeks = Math.floor(diffDays / 7);
+      result = weeks === 1 ? "1 week" : `${weeks} weeks`;
+    } else if (diffDays < 365) {
+      const months = Math.floor(diffDays / 30);
+      result = months === 1 ? "1 month" : `${months} months`;
+    } else {
+      const years = Math.floor(diffDays / 365);
+      result = years === 1 ? "1 year" : `${years}+ years`;
+    }
+    setExperience(result);
+  }, [startDate]);
+  return experience;
 };
 
 const toolkit = toolkitData.toolkit as ToolkitCategory[];
@@ -121,7 +127,7 @@ const ToolkitSection = () => {
                           key={item.name}
                           name={item.name}
                           proficiency={getProficiency(item.level)}
-                          experience={calculateExperience(item.startDate)}
+                          experience={useExperience(item.startDate)}
                           description={item.description}
                           level={item.level}
                         >
